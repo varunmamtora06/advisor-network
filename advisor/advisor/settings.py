@@ -75,6 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'advisor.wsgi.application'
 
+AUTH_USER_MODEL = "main.NewUserModel"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
