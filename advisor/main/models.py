@@ -53,7 +53,7 @@ class NewUserModel(AbstractBaseUser, PermissionsMixin):
 
 class Advisor(models.Model):
     advisor_name = models.CharField(max_length=50)
-    advisor_pic = models.ImageField(upload_to='advisorPics/', blank=True)
+    advisor_pic = models.ImageField(upload_to='advisorPics/')
 
 class Booking(models.Model):
     booking_time = models.DateTimeField(auto_now_add=False)
