@@ -12,11 +12,12 @@ class RegisterNewUserSerializer(serializers.Serializer):
 
 
     def validate(self,data):
-        fname =  data.get("fname","")
+        # fname =  data.get("fname","")
+        fname =  data["fname"]
         # username =  data.get("username","")
-        email = data.get("email","")
-        password1 =  data.get("password1","")
-        password2 =  data.get("password2","")
+        email = data["email"]
+        password1 =  data["password1"]
+        password2 =  data["password2"]
 
         if password1 == password2:
             if NewUserModel.objects.filter(email=email).exists():
@@ -35,3 +36,8 @@ class AdvisorSerializor(serializers.ModelSerializer):
     class Meta:
         model = Advisor
         fields = '__all__'
+
+class BookingSerializor(serializers.ModelSerializer):
+    class Meta:
+        model = Booking
+        fields = ('booking_time',)
