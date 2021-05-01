@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath advisor advisor.wsgi --log-file -
