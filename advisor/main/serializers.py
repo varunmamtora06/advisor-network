@@ -40,4 +40,6 @@ class AdvisorSerializor(serializers.ModelSerializer):
 class BookingSerializor(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = ('booking_time',)
+        fields = '__all__'
+        read_only_fields = ('advisor_booked','by_user')
+        
