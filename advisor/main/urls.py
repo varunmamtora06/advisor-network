@@ -6,9 +6,11 @@ from rest_framework_simplejwt.views import (
 )
 urlpatterns = [
     path('', views.index, name='index'),
+
+    path('admin/advisor/',views.AdvisorAddApi.as_view()),
+
     path('user/register/',views.RegisterNewUserView.as_view()),
     # path('api-newuser-login',views.LoginNewUserView.as_view()),
-    
     path('user/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('user/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

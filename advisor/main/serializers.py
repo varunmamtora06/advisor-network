@@ -30,3 +30,8 @@ class RegisterNewUserSerializer(serializers.Serializer):
             msg = "Passwords didnt match"
             raise exceptions.ValidationError(msg)
         return data
+
+class AdvisorSerializor(serializers.ModelSerializer):
+    class Meta:
+        model = Advisor
+        fields = '__all__'

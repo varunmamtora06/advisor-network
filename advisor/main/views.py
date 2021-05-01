@@ -4,7 +4,7 @@ from django.contrib.auth.models import auth
 #REST Auth
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from django.views.decorators.csrf import csrf_exempt
 from .serializers import *
 
 def index(request):
@@ -20,3 +20,14 @@ class RegisterNewUserView(APIView):
         return Response({
             'mssg': " registered",
         }, status=200)
+
+
+class AdvisorAddApi(APIView):
+    def post(self, request):
+        serializer = AdvisorSerializor(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        
+        return Response({
+            'mssg':'Data entered success'
+        },status=200)
